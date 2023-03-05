@@ -5,32 +5,87 @@
     <title>Scope Tests</title>
 </head>
 <body>
-    <script>
+<script>
+    /**
+     * With no "scope", it could already be initialized, could be an overwrite, if it does not exist, it gets added to windows scope
+     * Still do not do it, avoid using the global object.
+     * a = 1;
+     */
 
-        // x = 0; // don't do that !
-        // var x = 0;// don't do that !
-        // let x = 0;
-        // (() => {
-        //     // x = 1; // don't do that !
-        //     // var x = 1;// don't do that !
-        //     let x = 1;
-        //     document.writeln(x);
-        //
-        // })();
-        // document.writeln(x);
+    /**
+     * Var scope is not necessary anymore, its archaic
+     * var a = 1; gets defined at start of function but gets initialized at place where it was called, "hoisted" scope
+     */
 
-        const id    = x => x;
-        const Konst = x => y => x;
+    /*
+    let x = 0;
+    function foo() {
+        let x = 1;
+        document.writeln(x);
+    }
+    foo();
 
-        const Kite  = Konst(id);
+    // if it gets called immediately, one can also write function as
+    (function() {
+        let x = 1;
+        document.writeln(x);
+    })();
+
+    // And then further to lambda
+    (() => {
+        let x = 1;
+        document.writeln(x);
+    })();
+
+    // Newest JS allows
+    {
+        let x = 1;
+        document.writeln(x);
+    }
+
+    document.writeln(x);
+    */
+
+    //Beta Reduction, einsetzten und kürzen.
+    const id = x => x;
+    /**
+     * Steps to go through
+     * id(id());
+     * (x=>x)(id);
+     * id=>id;
+     * id;
+     */
+    //Therefore id(id()) === id
+    document.writeln( id(id) === id);
+
+    const Konst = x => y => x;
+    Konst(id)(undefined)
+        //Beta Reduction
+        (x=> y => x )(id)(undefined)
+    //Beta Reduction
+    y=>id(undefined)
+    id
 
 
-        document.writeln( id(id) === id);
-        document.writeln( Konst(id)(undefined) === id);
-        document.writeln( Konst(id)(42) === id);
-        document.writeln( Kite(undefined)(id) === id);
 
-    </script>
+    document.writeln( Konst(id)(undefined) === id);
+    const konstid = Konst(id);
+    document.writeln(konstid() === id)
+
+
+    // 1. const Kite = x => y => y;
+    //Rewrite with only id and konst
+    // 2. const Kite = x=> y => id(y);
+    //Eta reduction, if right most element (y) is equal right most => we can remove both
+    //const Kite = x => id;
+    //What is happening here
+    //const Kite = x => (x=>y=>x)(id)(x);
+    //const Kite = x => Konst(id)(x);
+    //Eta reduction
+    const Kite = Konst(id);
+    document.writeln( Kite(undefined)(id) === id);
+
+</script>
 </body>
 </html>
 

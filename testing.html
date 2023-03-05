@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scope Tests</title>
+</head>
+<body>
+<script>
+  /*function two() {
+    x = 2;
+    return x;
+  }
+
+  try {
+    x;
+    document.writeln(true);
+  } catch(e) {
+    document.writeln(false);
+  }
+  false
+  */
+
+  /*function two() {
+    let x = 2;
+    return x;
+  }
+  try {
+    x;
+    document.writeln(true);
+  } catch(e) {
+    document.writeln(false);
+  }
+
+  false*/
+
+  /*let x = 0;
+  function two() {
+    let x = 2;
+    return x;
+  }
+  try {
+    x;
+    document.writeln(x === 0);
+  } catch(e) {
+    document.writeln(false);
+  }
+
+  true*/
+
+  /*function two() {
+    x = 2;
+    return x;
+  }
+
+  two();
+  try {
+    x;
+    document.writeln(true);
+  } catch(e) {
+    document.writeln(false);
+  }
+
+  true*/
+
+  /*let x = 0;
+  function two() {
+    x = 2;
+    return x;
+  }
+
+  two();
+
+  try {
+    x;
+    document.writeln(x === 0);
+  } catch(e) {
+    document.writeln(false);
+  }
+
+  false*/
+
+  /*let x = 0;
+  (function two() {
+    let x = 2;
+    return x;
+  })();
+
+  try {
+    document.writeln(x === 0);
+  } catch (e){
+    document.writeln(false);
+  }
+
+  // true*/
+
+  /*let x = 0;
+  function two() {
+    let x = 2;
+    return x;
+  }
+  two();
+
+  try {
+    document.writeln(x === 0);
+  } catch (e){
+    document.writeln(false);
+  }
+
+  true*/
+
+  /*let x = 0;
+  ( () => {
+    x = 2;
+    return x;
+  })();
+
+  try {
+    document.writeln(x === 0);
+  } catch (e){
+    document.writeln(false);
+  }*/
+
+  // x false  let x false*/
+
+  /*let x = 0;
+  function() {
+    let x = 2;
+    return x;
+  }();
+
+  try {
+    document.writeln(x === 0);
+  } catch (e){
+    document.writeln(false);
+  }
+
+  false*/
+
+  const id1 = x => x;
+  const id2 = y => y;
+
+  document.writeln(id1(1)===id2(1));
+
+  const id = x=> x;
+
+  const a1 = y => id(y);
+  const a2 = y => y;
+
+  document.writeln(a1(2)===a2(2));
+
+  const konst = x => y => x;
+
+  const k1 = x => y => konst(id)(x)(y);
+  const k2 = x      => konst(id)(x);
+  const k3 =           konst(id);
+
+  document.writeln(k1(2)(2) === k2(2)(2));
+  document.writeln(k2(1)(2) === k3(2)(2));
+
+  document.writeln(id(1)===konst(1)(2));
+
+
+
+  const F1 = x => (x=>x);
+  const F2 = y => (x=>y);
+
+  document.writeln(F1(1)(0)===F2(1)(0));
+
+
+
+
+</script>
+</body>
+</html>
+
