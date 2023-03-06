@@ -136,7 +136,7 @@
 
   false*/
 
-  const id1 = x => x;
+  /*const id1 = x => x;
   const id2 = y => y;
 
   document.writeln(id1(1)===id2(1));
@@ -164,7 +164,36 @@
   const F1 = x => (x=>x);
   const F2 = y => (x=>y);
 
-  document.writeln(F1(1)(0)===F2(1)(0));
+  document.writeln(F1(1)(0)===F2(1)(0));*/
+
+  const id = x=> x;
+  const konst = x => y => x;
+
+  const sndp = konst(id);
+
+
+  const T = konst;
+
+  const F = sndp;
+const pair = a => b => f => f(a)(b);
+const fst = p => p(T);
+const snd = p => p(F);
+
+const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+
+// const pairPlus = a => b => pair (fst(a) + fst(b)) (snd(a) + snd(b));
+
+  const pairMap = f => p => pair (f(fst(p))) (f(snd(p)));
+
+
+const oneTwo = pair(1)(2);
+const square = x => x * x;
+const result = pairMap (square) (oneTwo);
+
+document.writeln(pairEq(result)(pair(1)(4)));
+
+
+//true
 
 
 

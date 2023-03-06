@@ -1,4 +1,45 @@
 
+const id = x => x;
+
+const konst = x => y => x;
+
+//const snd = konst(id);
+const snd = x => y => y;
+
+//True returns first value and false returns the second.
+//const T = x => y => x;
+const T = konst;
+//const F = x => y => y;
+const F = snd;
+
+//P and Q instead of x and y
+//First parantheses gets called if p is true, p {()} ()
+// p (     ) (     )
+//     p=T    p=F
+// const and = p => q => p (q (T) (F)) (q (F) (F))
+// const and = p => q => p (q (T) (F)) (F);
+// const and = p => q => p (q) (F);
+const and = p => q => p (q) (p);
+
+
+// const or = p => q => p (q(T) (T)) (q (T) (F));
+// const or = p => q => p (T) (q (q) (q));
+const or = p => q => p (p) (q);
+
+// Rock solid construction, cant be changed, is immutable, not even Debugger can change it.
+const Pair = firstname => lastname => getter => getter(firstname)(lastname);
+// Gives firstname, which is same as konst first from getter
+const firstname = konst;
+// Gives lastname, which is same as snd, second from getter
+const lastname = snd;
+
+const Left = x => f => g => f(x);
+const Right= x => f => g => g(x);
+// Eta reduce multiple times, then exchance the e => e with id
+// const either = e => f => g => e(f)(g);
+// const either = e => f => e(f);
+// const either = e => e;
+const either = id;
 
 
 // ----- special -----
