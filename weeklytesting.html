@@ -31,7 +31,7 @@
 
         /*Week 3 Programming*/
 
-        const id = x => x;
+        /*const id = x => x;
         const Left = x => f => g => f(x);
         const Right = x => f => g => g(x);
         const either = e => f => g => e(f)(g);
@@ -61,7 +61,42 @@
             ( sdoutput => sdoutput)
             ( sdoutput => "Result is: "+sdoutput);
 
-        document.writeln(eShowEither(safeDiv(1)(0)) === "Cannot divide by 0" && eShowEither(safeDiv(2)(1)) === "Result is: "+2)
+        document.writeln(eShowEither(safeDiv(1)(0)) === "Cannot divide by 0" && eShowEither(safeDiv(2)(1)) === "Result is: "+2)*/
+
+        /*const s1 = x => y => z => x;
+        const s2 = x => y => z => y;
+        const s3 = x => y => z => z;
+
+        const triple = x => y => z => f => f(x)(y)(z);
+        const a = t => t(s1);
+        const b = t => t(s2);
+        const c = t => t(s3);
+
+        const person = triple;
+        const firstname = a;
+        const lastname = b;
+        const age = c;
+
+        const bran = person("Brendan");
+        const raven = bran("Stark")(16);
+
+
+        document.writeln(age(raven) === 16);*/
+
+        const Left      = x => f => g => f(x);
+        const Right     = x => f => g => g(x);
+        const either    = e => f => g => e (f) (g);
+
+        const safeDiv = num => divisor =>
+            divisor === 0
+                ? Left ("cannot divide by 0")
+                : Right (num / divisor);
+
+        const result = safeDiv(1)(0);
+
+        either (result)
+            (msg => document.writeln(msg));
+
 
 
     </script>
