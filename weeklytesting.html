@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        /*Week 2 Programming
+
+        const F1 = x => (x => x);
+        const F2 = y => (x => y);
+        const F3 = y => (y => y);
+
+        document.writeln(F1(2)(1) === F2(2)(1));
+
+        const id1 = x => x;
+        const id2 = y => y;
+
+        document.writeln(id1(2) === id2(2));
+
+        const id = y => y;
+        const fst = x => y => x;
+
+        const snd = fst(id);
+
+        document.writeln(snd());
+
+        document.writeln(snd(3)(6));*/
+
+        /*Week 3 Programming*/
+
+        const id = x => x;
+        const Left = x => f => g => f(x);
+        const Right = x => f => g => g(x);
+        const either = e => f => g => e(f)(g);
+
+        const safeDiv = num => divisor =>
+            divisor === 0
+                ? Left ("Cannot divide by 0")
+                : Right (num / divisor);
+
+
+        const eShowNothing = sdresult =>
+            (sdresult)
+            ( sdoutput => sdoutput)
+            ( sdoutput => "Result is: "+sdoutput);
+
+        document.writeln(eShowNothing(safeDiv(1)(0)) === "Cannot divide by 0" && eShowNothing(safeDiv(2)(1)) === "Result is: "+2)
+
+        const eShowId = sdresult =>
+            id(sdresult)
+            ( sdoutput => sdoutput)
+            ( sdoutput => "Result is: "+sdoutput);
+
+        document.writeln(eShowId(safeDiv(1)(0)) === "Cannot divide by 0" && eShowId(safeDiv(2)(1)) === "Result is: "+2)
+
+        const eShowEither = sdresult =>
+            either(sdresult)
+            ( sdoutput => sdoutput)
+            ( sdoutput => "Result is: "+sdoutput);
+
+        document.writeln(eShowEither(safeDiv(1)(0)) === "Cannot divide by 0" && eShowEither(safeDiv(2)(1)) === "Result is: "+2)
+
+
+    </script>
+
+</body>
+</html>

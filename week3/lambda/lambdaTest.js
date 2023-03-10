@@ -81,8 +81,8 @@ const safeDiv = num => divisor =>
     : Right(num / divisor);
 
 either( safeDiv(1)(0)  )
-      ( x => console.error(x))
-      ( x => console.log(x));
+( x => console.error(x))
+( x => console.log(x));
 
 id(safeDiv(1)(0)  )
     ( x => console.error(x))
