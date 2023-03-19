@@ -1,5 +1,4 @@
 const id    = x => x;
-
 const konst = x => y => x; // Kestrel, K
 const fst   = konst;       // just an alias
 const snd   = x => y => y; // Kite,    KI
