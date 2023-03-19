@@ -166,7 +166,7 @@
 
   document.writeln(F1(1)(0)===F2(1)(0));*/
 
-  const id = x=> x;
+  /*const id = x=> x;
   const konst = x => y => x;
 
   const sndp = konst(id);
@@ -179,21 +179,75 @@ const pair = a => b => f => f(a)(b);
 const fst = p => p(T);
 const snd = p => p(F);
 
-const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
 // const pairPlus = a => b => pair (fst(a) + fst(b)) (snd(a) + snd(b));
 
-  const pairMap = f => p => pair (f(fst(p))) (f(snd(p)));
-
-
-const oneTwo = pair(1)(2);
-const square = x => x * x;
-const result = pairMap (square) (oneTwo);
-
-document.writeln(pairEq(result)(pair(1)(4)));
+//   const pairMap = f => p => pair (f(fst(p))) (f(snd(p)));
+//
+//
+// const oneTwo = pair(1)(2);
+// const square = x => x * x;
+// const result = pairMap (square) (oneTwo);
+//
+// document.writeln(pairEq(result)(pair(1)(4)));
 
 
 //true
+
+  // Week 4
+
+  // map; takes every element and creates a new "value" for it
+
+  const times = a => b => a * b;
+
+  const twoTimes = times(2);
+
+  document.writeln([1,2,3].map(x => times(2)(x)));
+  //Eta reduction
+  document.writeln([1,2,3].map(times(2)));
+  //Is assigned to another variable
+  document.writeln([1,2,3].map(twoTimes));
+
+
+  const twice = a => 2 * a;
+
+  document.writeln("This is the test: "+ [1,2,3].map(twice));
+
+
+  // filter; retain all elements that fulfill decleration
+
+  const odd = x => x % 2 === 1;
+
+  document.writeln([1,2,3].filter(x=>x%2===1));
+  //Putting const in
+  document.writeln([1,2,3].filter(x => odd(x)));
+  //Eta reduction
+  document.writeln([1,2,3].filter(odd));
+
+  const divides = x => y => (y / x) % 1 === 0;
+
+  document.writeln("TZhis is the test: "+[1,2,3,4,5,6].filter(divides(3)))
+
+
+
+  //reduce; takes an array but doesnt work with single element, but rather multiple elements
+  // "combined" elements
+  const plus = (accu, curr) => accu + curr;
+
+  document.writeln([1,2,3].reduce((accu,curr) => accu + curr));
+  document.writeln([1,2,3].reduce(plus));
+  document.writeln([1,2,3].reduce(plus, 0));
+
+  const join = x => (val1, val2) => val1 +""+x+""+val2;
+
+  document.writeln("This is the test: "+[1,2,3].reduce(join('-')));
+
+
+
+
+
+
 
 
 
