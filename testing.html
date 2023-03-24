@@ -245,17 +245,29 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   const e = {revenue: 10000, bonus: null};
 
-  const bonusFormula = "employee.bonus = employee.revenue * 0.3";
+  //Q10.A
 
-  const formulaArray = bonusFormula.split(" ");
+  // const bonusFormula = "employee.bonus = employee.revenue * 0.3";
 
-  const bonusCalculation = x => eval(`${x}`+`.bonus = x.revenue * Number(formulaArray[4])`);
+  // OLD const formulaArray = bonusFormula.split(" ");
 
-  //take bonusFormula and split it up in all single fields, so they can be used by others, e.g. factor_
+  // OLD const bonusCalculation = x => eval(`${x}`+`.bonus = x.revenue * Number(formulaArray[4])`);
+
+  // const bonusCalculation = employee => eval(bonusFormula);
+
+  //Q10.B
+
+  const bonusFormula = "employee.revenue * 0.2";
+
+  const bonusCalculation = Function("employee", "return employee.bonus = " + bonusFormula + ";");
+
+  //Check Test
 
   document.writeln(bonusCalculation(e));
 
-  document.writeln(e.bonus === e.revenue * 0.3);
+  console.log(bonusCalculation(e));
+
+  document.writeln(e.bonus === e.revenue * 0.2);
 
 
 
