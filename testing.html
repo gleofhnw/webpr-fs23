@@ -199,7 +199,7 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   // map; takes every element and creates a new "value" for it
 
-  const times = a => b => a * b;
+  /*const times = a => b => a * b;
 
   const twoTimes = times(2);
 
@@ -212,12 +212,12 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   const twice = a => 2 * a;
 
-  document.writeln("This is the test: "+ [1,2,3].map(twice));
+  document.writeln("This is the test: "+ [1,2,3].map(twice));*/
 
 
   // filter; retain all elements that fulfill decleration
 
-  const odd = x => x % 2 === 1;
+  /*const odd = x => x % 2 === 1;
 
   document.writeln([1,2,3].filter(x=>x%2===1));
   //Putting const in
@@ -227,13 +227,13 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   const divides = x => y => (y / x) % 1 === 0;
 
-  document.writeln("TZhis is the test: "+[1,2,3,4,5,6].filter(divides(3)))
+  document.writeln("TZhis is the test: "+[1,2,3,4,5,6].filter(divides(3)))*/
 
 
 
   //reduce; takes an array but doesnt work with single element, but rather multiple elements
   // "combined" elements
-  const plus = (accu, curr) => accu + curr;
+  /*const plus = (accu, curr) => accu + curr;
 
   document.writeln([1,2,3].reduce((accu,curr) => accu + curr));
   document.writeln([1,2,3].reduce(plus));
@@ -241,9 +241,21 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   const join = x => (val1, val2) => val1 +""+x+""+val2;
 
-  document.writeln("This is the test: "+[1,2,3].reduce(join('-')));
+  document.writeln("This is the test: "+[1,2,3].reduce(join('-')));*/
 
+  const e = {revenue: 10000, bonus: null};
 
+  const bonusFormula = "employee.bonus = employee.revenue * 0.3";
+
+  const formulaArray = bonusFormula.split(" ");
+
+  const bonusCalculation = x => eval(`${x}`+`.bonus = x.revenue * Number(formulaArray[4])`);
+
+  //take bonusFormula and split it up in all single fields, so they can be used by others, e.g. factor_
+
+  document.writeln(bonusCalculation(e));
+
+  document.writeln(e.bonus === e.revenue * 0.3);
 
 
 
