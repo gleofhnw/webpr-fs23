@@ -5,13 +5,14 @@
 
     const myObject = {
         a   : 1,
-        foo : function() { return this.a }
-        // foo() { return this.a }              // syntactic sugar
+        // foo : function() { return this.a }
+         foo() { return this.a }              // syntactic sugar
     };
     ok.push(myObject.foo() === 1);
 
     const myFunctions = [ myObject.foo ];
-    // ok.push(myFunctions[0]() === 1);        // do functions capture "this" in their scope ?
+    //ok.push(myFunctions[0]() === 1);        // do functions capture "this" in their scope ? no it does not
+    ok.push(myFunctions[0]() !== 1);
 
     function outer( callback ) {
         const a = 2;
@@ -21,8 +22,12 @@
         const a = 3;
         return this.a;
     }
-    // ok.push(outer( inner ) === 2);          // guess what
-    // ok.push(outer( inner ) === 3);
+    //ok.push(outer( inner ) === 2);          // guess what, due to left side of callback
+    //ok.push(outer( inner ) === 3);
+    ok.push(outer( inner ) !== 2);
+    ok.push(outer( inner ) !== 3);
+
+    ok.push(outer( inner ) === undefined);
 
     report("this-is-an-issue", ok);
 }) ();
