@@ -7,18 +7,14 @@
 <body>
 
     <script>
-
-        const names = [
+        [
             "function",
             "lambda",
             "snake"
-        ];
-
-        names.forEach( name => {
-            document.writeln(`<script src="${name}/${name}.js"><` + `/script>`);
+        ].forEach( name => {
+            document.writeln(`<script src="${name}/${name}.js"    ><` + `/script>`);
             document.writeln(`<script src="${name}/${name}Test.js"><` + `/script>`);
-        });
-
+        } );
     </script>
 
 

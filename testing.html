@@ -243,33 +243,110 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   document.writeln("This is the test: "+[1,2,3].reduce(join('-')));*/
 
-  const e = {revenue: 10000, bonus: null};
+  /*const e = {revenue: 10000, bonus: null};
 
-  //Q10.A
+  const bonusFormula = "employee.bonus = employee.revenue * 0.3";
 
-  // const bonusFormula = "employee.bonus = employee.revenue * 0.3";
+  const bonusFormula2 = "employee.revenue * 0.3"
 
-  // OLD const formulaArray = bonusFormula.split(" ");
+  //const bonusCalculation = employee => eval(bonusFormula);
 
-  // OLD const bonusCalculation = x => eval(`${x}`+`.bonus = x.revenue * Number(formulaArray[4])`);
+  function bonusCalculation(employee) {
+    eval(bonusFormula)
+  }
 
-  // const bonusCalculation = employee => eval(bonusFormula);
+  //const bonusCalculation = Function("employee", "return employee.bonus = "+bonusFormula2+";")
 
-  //Q10.B
 
-  const bonusFormula = "employee.revenue * 0.2";
-
-  const bonusCalculation = Function("employee", "return employee.bonus = " + bonusFormula + ";");
-
-  //Check Test
+  //take bonusFormula and split it up in all single fields, so they can be used by others, e.g. factor_
 
   document.writeln(bonusCalculation(e));
 
-  console.log(bonusCalculation(e));
-
-  document.writeln(e.bonus === e.revenue * 0.2);
+  document.writeln(e.bonus === e.revenue * 0.3);*/
 
 
+  /*function Empty() {}
+
+  const empty = new Empty();
+
+  Empty.prototype.answer = 42;
+
+  document.writeln(empty.answer === 42)
+
+  True
+  */
+
+
+  /*const Empty = ( () => {
+    function Empty() {}
+    return Empty;
+  }) ();
+
+  const empty = Empty;
+
+  document.writeln(empty instanceof Empty)
+
+  False
+  */
+
+  /*const Empty = ( () => {
+    function Empty() {}
+    return Empty;
+  }) ();
+
+  const empty = new Empty;
+  const also = new Empty;
+
+  Empty.prototype.answer = 42;
+
+  document.writeln(
+          empty.answer === 42 && also.answer === 42
+  );
+
+  True*/
+
+  /*const Empty = ( () => {
+    function Empty() {}
+    return Empty;
+  }) ();
+
+  const empty = new Empty;
+
+  document.writeln(empty instanceof Empty)
+
+
+  True*/
+
+
+  const Person = name => {
+    let age = 0;
+    return {
+      getAge: () => age,
+      setAge: newAge => age = newAge,
+      getName: () => name,
+      setName: newName => name = newName
+    }
+  };
+
+ /* const me = Person("Myself");
+  me.name = "***";
+  document.writeln(me.getName() === "***");
+
+  False
+  */
+
+  /*const me = Person("Myself");
+  me.setAge(50);
+  document.writeln(me.getAge() === 50);
+
+  True*/
+
+  /*const me = Person("Myself");
+  me.setName("Sherlock");
+  document.writeln(me.getName() === "Sherlock");
+
+
+  True*/
 
 
 
