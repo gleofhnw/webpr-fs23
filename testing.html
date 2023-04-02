@@ -243,17 +243,14 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   document.writeln("This is the test: "+[1,2,3].reduce(join('-')));*/
 
-  /*const e = {revenue: 10000, bonus: null};
+  const e = {revenue: 10000, bonus: null};
 
   const bonusFormula = "employee.bonus = employee.revenue * 0.3";
 
   const bonusFormula2 = "employee.revenue * 0.3"
 
-  //const bonusCalculation = employee => eval(bonusFormula);
+  const bonusCalculation = employee => eval(bonusFormula);
 
-  function bonusCalculation(employee) {
-    eval(bonusFormula)
-  }
 
   //const bonusCalculation = Function("employee", "return employee.bonus = "+bonusFormula2+";")
 
@@ -262,7 +259,7 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   document.writeln(bonusCalculation(e));
 
-  document.writeln(e.bonus === e.revenue * 0.3);*/
+  document.writeln(e.bonus === e.revenue * 0.3);
 
 
   /*function Empty() {}
@@ -318,7 +315,7 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
   True*/
 
 
-  const Person = name => {
+  /*const Person = name => {
     let age = 0;
     return {
       getAge: () => age,
@@ -326,7 +323,7 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
       getName: () => name,
       setName: newName => name = newName
     }
-  };
+  };*/
 
  /* const me = Person("Myself");
   me.name = "***";
