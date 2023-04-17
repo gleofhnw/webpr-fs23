@@ -25,6 +25,38 @@
 
     document.writeln("\nCheck possible errors in the console .")
 
+    /**
+     * Logs the String that was given as a parameter
+     * @funtion
+     * @param {String} myString - is the String that gets logged
+     * @return { void }
+     */
+    const foo = myString => console.log(myString.length);
+
+    /**
+     * Logs the String that was given as a parameter
+     * @funtion
+     * @return { void }
+     * @param {"hello" | "hi"} myString
+     */
+    const foo1 = myString => console.log(myString.length);
+
+    foo1("hi");
+    foo1(String(10)); // Why does this work?
+    // Does not work as "dancer" is not "hello" or "hi" foo1("dancer");
+
+    /**
+     * @typedef MyInterface
+     * @property {Number} a
+     * @property {Number} b
+     */
+
+    /**
+     * @type {MyInterface}
+     */
+
+    const myObj = {a:1, b:2}
+
 </script>
 
 </pre>
