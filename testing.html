@@ -602,6 +602,413 @@ const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);*/
 
   false*/
 
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  };
+
+  const filterEven = n => {
+    if ( n % 2 === 0) return n; else throw Error("not even");
+  };
+
+  idPromise(1)
+          .then(writer)
+          .then(filterEven)
+          .then(writer)
+          .catch(err => {});*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  idPromise(1)
+          .then(it => it)
+          .then(it => document.writeln(it));
+*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  };
+
+  idPromise(1)
+          .then(writer)
+          .then(it => it + 1)
+          .then(writer)*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  document.writeln(idPromise(1));*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  idPromise(1)
+          .then( it => {document.writeln(it); return it; })
+          .then( it => document.writeln(it));*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  }
+
+  idPromise(1)
+          .then(writer)
+          .then(it => document.writeln(it));*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  }
+
+  const filterEven = n => n % 2 === 0 ? n : undefined;
+
+  idPromise(1)
+          .then(writer)
+          .then(filterEven)
+          .then(writer);*/
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  }
+
+  const inc = n => n + 1;
+  const filterEven = n => n % 2 === 0 ? n : undefined;
+
+  idPromise(1)
+          .then(writer)
+          .then(inc)
+          .then(writer)
+          .then(filterEven)
+          .then(writer)
+  */
+
+  /*const idPromise = x => new Promise( resolve => resolve(x));
+
+  idPromise(1)
+          .then(it => document.writeln(it));*/
+
+  /*const idPromise = x => new Promise(resolve => resolve(x));
+  const failPromise = err => new Promise( (resolve, reject) => reject(err));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  };
+
+  const inc = n => idPromise(n + 1);
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    while(x < 4) {
+      x = await writer(x);
+      x = await inc(x);
+    }
+  };
+
+  foo(1);*/
+
+  /*const idPromise = x => new Promise(resolve => resolve(x));
+  const failPromise = err => new Promise( (resolve, reject) => reject(err));
+
+  const writer = x => {
+    document.writeln(x);
+    return idPromise(x);
+  };*/
+
+  /*const foo = async i => {
+    let x = await idPromise(i);
+    x = await writer(x);
+  }
+
+  foo(1);*/
+
+  // const fooo = async i => {
+  //   let x = await idPromise(i);
+  //   x.then(writer);
+  // }
+
+  /*const foo = async i => {
+    let x = await idPromise(i);
+    document.writeln(x);
+  }*/
+
+  /*const inc = n => idPromise(n + 1);
+  const filterEven = n => n % 2 === 0 ? idPromise(n): failPromise("not even");
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    while (x < 4) {
+      x = await filterEven(x);
+      x = await writer(x);
+      x = await inc(x);
+    }
+  };
+
+  foo(1);*/
+
+  /*const inc = n => idPromise(n + 1);
+  const filterEven = n => n % 2 === 0 ? idPromise(n): failPromise("not even");
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    while (x < 4) {
+      x = await filterEven(x).catch( err => {});
+      x = await writer(x);
+      x = await inc(x);
+    }
+  };
+
+  foo(1);*/
+
+  /*const inc = n => idPromise(n + 1);
+  const filterEven = n => n % 2 === 0 ? idPromise(n): failPromise("not even");
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    while (x < 4) {
+      x = await filterEven(x);
+      x = await writer(x);
+      x = await inc(x);
+    }
+  };
+
+  foo(1);*/
+
+  /*const inc = n => idPromise(n + 1);
+  const filterEven = n => n % 2 === 0 ? idPromise(n): failPromise("not even");
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    while (x < 4) {
+      x = await filterEven(x);
+      x = await writer(x);
+      x = await inc(x);
+    }
+  };
+
+  foo(1);*/
+
+ /* const idPromise = x =>new Promise( resolve => resolve(x));
+
+  const failPromise = err => new Promise(( resolve, reject ) => reject(err));
+
+  const foo = async i => {
+    let x = await idPromise(i);
+    document.writeln(x);
+  };
+
+  foo(1);
+*/
+
+/*  const NullSafe = x => {
+
+    const isNullSafe = y => y && y.then;
+
+    const maywrap = y => isNullSafe(y) ? y : NullSafe(y); // if y is not NullSafe yet, make it so
+
+    return {
+
+      then: fn => {
+
+        if(x !== null && x !== undefined) {
+
+          const result = fn(x);
+
+          return maywrap(result);
+
+        }
+
+        return NullSafe(null);
+
+      }
+
+    };
+
+  };*/
+
+  const NullSafe = x => {
+
+    const isNullSafe = y => y && y.then;
+    const maywrap = y => isNullSafe(y) ? y : NullSafe(y); // if y is not NullSafe yet, make it so
+
+    return {
+      then: fn => {  // see(1)
+        if(x !== null) {
+          const result = fn(x);
+          return maywrap(result);
+        }
+        return NullSafe(null);
+      }
+    };
+  };
+
+  /*Fill the gaps such that NullSafe objects can be chained with their "then" function
+just like Promises do, incl. auto-promotion of result values to NullSafe objects.*/
+
+  NullSafe(1).then(console.log); // will call the log
+  NullSafe(null).then(console.log); // will not call the log
+  NullSafe(2).then( x => null).then(console.log); // will not call the log
+
+  // x_ and y_ are given. do not override.
+  const x_ = 3;
+  let y_ = 2;
+  document.writeln(
+          NullSafe(x_)
+                  .then( x => x*2) // must auto-promote
+                  .then( x => NullSafe(x)) // must not auto-promote
+                  .then( x => y_ = x + 1) // store value, check no double promotion
+                  .then( x => null) // jump over rest
+                  .then( x => x.mustNotBeCalled) !== null && y_ === x_ * 2 + 1
+  )
+
+ /* const  str2chars = str => [...str];
+  const isAlpha = char => char.match(/[a-z]/);
+
+  const palindrome = str => {
+    const lcStr = str.toLowerCase();
+    const str1 = str2chars(lcStr);
+    const str2 = [];
+    for (let i = 0; i < str1.length; i++) {
+      if(isAlpha(str1[i])) {
+        str2.push(str1[i]);
+      }
+    }
+    const str2Len = str2.length;
+    for (let i = 0; i < str2Len; i++) {
+      if(str2[i] !== str2[str2Len-i-1]) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+
+
+
+  /!*const palindrome = str => {
+    const processedStr = str2chars(str.toLowerCase()).filter(isAlpha);
+    return processedStr.join('') === processedStr.reverse().join('');
+  };*!/
+  document.writeln(palindrome("Amore, Roma!") && palindrome("Madam, I'm Adam!") && palindrome("Never odd or even.") && !palindrome("Amore"));*/
+
+  // const Scheduler = () => {
+  //   let inProcess = false;
+  //   const tasks = [];
+  //   function process() {
+  //     if (inProcess) return;
+  //     if (tasks.length === 0) return;
+  //     inProcess = true;
+  //     const task = tasks.pop();
+  //     const prom = new Promise( ok => task(ok) );
+  //     prom.then( _ => {
+  //       inProcess = false;
+  //       process();
+  //     });
+  //   }
+  //   function add(task) {
+  //     tasks.unshift(task);
+  //     process();
+  //   }
+  //   return {
+  //     add:   add,
+  //     addOk: task => add( ok => { task(); ok(); }) // convenience
+  //   }
+  // };
+
+  // let state = 3;
+  //
+  // const scheduler = Scheduler();
+  // scheduler.add(ok => {
+  //   setTimeout(_ => {
+  //     state = state - 2;
+  //     ok();
+  //   }, 100)
+  // });
+  //
+  // scheduler.add(ok => {
+  //   state = state - 1;
+  //   ok();
+  // });
+  //
+  // scheduler.add(ok => {
+  //   document.writeln(state);
+  //   ok();
+  // });
+
+  // let state = [0]
+  //
+  // const scheduler = Scheduler();
+  // scheduler.add(ok => {
+  //   setTimeout(_ => {
+  //     state.push(1)
+  //     ok();
+  //   }, 100)
+  // });
+  //
+  // scheduler.add(ok => {
+  //   state.push(2)
+  //   ok();
+  // });
+  //
+  //
+  // document.writeln(state);
+
+  /*let state = 3;
+
+  const scheduler = Scheduler();
+  scheduler.add(ok => {
+    setTimeout(_ => {
+      state = state - 2;
+      ok();
+    }, 100)
+  });
+
+  scheduler.add(ok => {
+    state = state - 1;
+    ok();
+  });
+
+  scheduler.add(ok => {
+    console.log(state);
+    ok();
+  });
+
+  console.log("x");
+*/
+
+ /* const DataFlowVariable = createValue => {
+    let value = undefined;
+    return () => {
+      if (value !== undefined) { return value }
+      value = createValue();
+      return value;
+    }
+  };
+
+  // const x = DataFlowVariable(() => y() * 2);
+  // let y = DataFlowVariable(() => 1);
+  //
+  // x();
+  // y = DataFlowVariable(() => 2);
+  //
+  // document.writeln(x());
+
+  const x = DataFlowVariable(() => y() * 2);
+  const y = DataFlowVariable(() => 1);
+
+
+
+  document.writeln(x());*/
+
 </script>
 </body>
 </html>
